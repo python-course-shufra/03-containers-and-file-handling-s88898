@@ -83,4 +83,4 @@ def avg_grade(name, profession):
 
 def get_professions(name):
     """Returns a list of unique professions that student has grades in"""
-    return list(set_grades:=set(index_student(name)['grades']))
+    return list(set_grades:=set([prof for prof, grade in index_student(name)['grades']]))
