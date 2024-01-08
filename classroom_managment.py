@@ -33,7 +33,11 @@ classroom = [
     },
 ]
 
-
+def index_student(name):
+    for s in classroom:
+        if s.name == name:
+            return s
+    return -1
 def add_student(name, email=None):
     """Add a new student to the classroom
     with the following keys:
@@ -42,31 +46,41 @@ def add_student(name, email=None):
              in lowercase, you can use the `s.lower()` method
     'grade': initialize with empty list
     """
-    pass
+    student = {}
+    student['name'] = name
+    student['email'] = email if email  else f'{name}@example.com'
+    student['grades'] = []
+    classroom.append(student)
+
+
 
 
 def delete_student(name):
     """Delete a student from the classroom"""
-    pass
+    classroom.remove(index_student(name))
 
 
 def set_email(name, email):
     """Sets the email of the student"""
-    pass
+    index_student(name)['email'] = email
 
 
 def add_grade(name, profession, grade):
     """Adds a new grade to the student grades"""
-    pass
+    index_student(name)['grades'].append(profession,grade)
 
 
 def avg_grade(name, profession):
     """Returns the average of grades of the student
     in the specified profession
     """
-    pass
-
+    total,count=0,0
+    for prof,g in index_student(name)['grades']:
+        if prof == profession:
+            total+=g
+            count+=1
+    return total/count
 
 def get_professions(name):
     """Returns a list of unique professions that student has grades in"""
-    pass
+    return list(set_grades:=set(index_student(name)['grades']))
