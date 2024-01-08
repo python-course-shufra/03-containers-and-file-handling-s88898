@@ -67,7 +67,7 @@ def set_email(name, email):
 
 def add_grade(name, profession, grade):
     """Adds a new grade to the student grades"""
-    index_student(name)['grades'].append(profession,grade)
+    index_student(name)['grades'].append((profession,grade))
 
 
 def avg_grade(name, profession):
