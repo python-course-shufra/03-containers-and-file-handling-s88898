@@ -34,9 +34,9 @@ classroom = [
 ]
 
 def index_student(name):
-    for s in classroom:
-        if s.name == name:
-            return s
+    for student in classroom:
+        if student['name'] == name:
+            return student
     return -1
 def add_student(name, email=None):
     """Add a new student to the classroom
